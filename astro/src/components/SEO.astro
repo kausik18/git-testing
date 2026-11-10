@@ -1,0 +1,53 @@
+---
+import { site } from '../data';
+import { pagePath } from '../url';
+
+export interface Props {
+	title: string;
+	description: string;
+	type?: 'website' | 'article';
+	image?: string;
+	jsonLd?: Record<string, unknown>[];
+	/** Error pages: emit only title + description (no canonical / social tags). */
+	minimal?: boolean;
+}
+
+const {
+	title,
+	description,
+	type = 'website',
+	image = site.defaultImage,
+	jsonLd = [],
+	minimal = false
+} = Astro.props;
+
+const canonical = new URL(pagePath(Astro.url), Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{
+	!minimal && (
+		<>
+			<link rel="canonical" href={canonical} />
+
+			<meta property="og:site_name" content={site.name} />
+			<meta property="og:type" content={type} />
+			<meta property="og:title" content={title} />
+			<meta property="og:description" content={description} />
+			<meta property="og:url" content={canonical} />
+			<meta property="og:image" content={imageUrl} />
+
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:title" content={title} />
+			<meta name="twitter:description" content={description} />
+			<meta name="twitter:image" content={imageUrl} />
+		</>
+	)
+}
+{
+	jsonLd.map((data) => (
+		<script type="application/ld+json" set:html={JSON.stringify(data).replace(/</g, '\\u003c')} />
+	))
+}

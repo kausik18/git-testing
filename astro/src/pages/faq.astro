@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { faqs } from '../data';
+import { faqSchema } from '../schema';
+---
+
+<BaseLayout
+	title="Frequently Asked Questions | DevNotes"
+	description="Answers to common questions about DevNotes: licensing of code samples, publishing schedule, guest posts, corrections and guide levels."
+	jsonLd={[faqSchema(faqs)]}
+>
+	<h1>Frequently asked questions</h1>
+	<p class="lead">Quick answers about reading, reusing and contributing to DevNotes.</p>
+
+	<section class="prose">
+		<h2>Reading and contributing</h2>
+		<dl>
+			{
+				faqs.map((item) => (
+					<>
+						<dt>{item.q}</dt>
+						<dd>{item.a}</dd>
+					</>
+				))
+			}
+		</dl>
+		<p>Did not find your answer? <a href="/contact">Send the editors a message</a>.</p>
+	</section>
+</BaseLayout>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% from "_macros.html" import img with context %}
+{% block content %}
+<h1>Contact Bookworm Bookstore</h1>
+<p class="lead">
+  Questions about an order, a special request or an upcoming event? We are always happy to hear from fellow readers.
+</p>
+
+<div class="two-col">
+  <section>
+    <h2>Visit the shop</h2>
+    <address>
+      {{ STORE.name }}<br>
+      {{ STORE.street }}<br>
+      {{ STORE.city }}, {{ STORE.region }} {{ STORE.postal_code }}<br>
+      Phone: <a href="tel:{{ STORE.phone }}">{{ STORE.phone_display }}</a><br>
+      Email: <a href="mailto:{{ STORE.email }}">{{ STORE.email }}</a>
+    </address>
+    <h3>Opening hours</h3>
+    <ul>
+      {% for days, time, _ in STORE.hours %}
+      <li>{{ days }}: {{ time }}</li>
+      {% endfor %}
+    </ul>
+    <p>
+      We are on the corner of Elm Street and Mill Lane, opposite the town green. Street parking is free for two hours,
+      and the number 4 bus stops right outside. Bicycle racks are available beside the café entrance.
+    </p>
+    <p>
+      Selling second-hand books? Bring them in on a Tuesday or Saturday between 10 am and 2 pm and one of our
+      booksellers will look through them while you browse. Planning a school visit, a book launch or a private event?
+      Send us a few details and we will get back to you with available dates.
+    </p>
+    {{ img(IMAGES.map) }}
+  </section>
+
+  <section>
+    <h2>Send us a message</h2>
+    <p>
+      Use the form for special orders, questions about used-book buying or event bookings. We usually reply within one
+      working day. For anything urgent, please give us a call during opening hours.
+    </p>
+    <!-- Non-functional demo form -->
+    <form class="contact-form" action="#" method="post" onsubmit="return false;">
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" autocomplete="name" required>
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+      <label for="topic">Topic</label>
+      <select id="topic" name="topic">
+        <option>Special order</option>
+        <option>Selling used books</option>
+        <option>Events</option>
+        <option>Something else</option>
+      </select>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+      <button type="submit">Send message</button>
+    </form>
+  </section>
+</div>
+{% endblock %}

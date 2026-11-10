@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { posts, formatDate } from '../../data';
+---
+
+<BaseLayout
+	title="Web Development Blog and Articles | DevNotes"
+	description="Opinionated articles from the DevNotes editors on web performance, accessibility, architecture decisions and lessons learned on real projects."
+>
+	{/* Intentional SEO defect: this <h1> text is identical to the one on /docs. */}
+	<h1>Learn Web Development with DevNotes</h1>
+	<p class="lead">Shorter, opinionated articles from the editors.</p>
+	<p class="prose">
+		Where our documentation guides aim to be neutral references, the blog is where we share opinions
+		and experience. Articles cover the decisions behind real projects, including the ones that did not
+		work out, along with performance investigations, accessibility checklists and reviews of new
+		tools once we have used them in production for a while. Every article lists its author and
+		publication date, and we add an editor's note when something we wrote has aged badly. If there is
+		a topic you would like us to cover, or you have a story from your own team worth sharing, drop us
+		a line through the contact page. We read every message and many of our best articles started as
+		reader questions.
+	</p>
+
+	<div class="grid">
+		{
+			posts.map((p) => (
+				<article class="card">
+					<img src={p.image} alt={p.imageAlt} width="480" height="270" />
+					<h2><a href={`/blog/${p.slug}`}>{p.title}</a></h2>
+					<p class="meta">
+						By {p.author} · <time datetime={p.datePublished}>{formatDate(p.datePublished)}</time>
+					</p>
+					<p>{p.excerpt}</p>
+				</article>
+			))
+		}
+	</div>
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data';
+---
+
+<BaseLayout
+	title="Contact the DevNotes Editors | DevNotes"
+	description="Contact the DevNotes editors to report a mistake, suggest a topic, pitch a guest article or ask about clearly labelled sponsorships."
+>
+	<h1>Contact the editors</h1>
+	<p class="lead">We read every message and usually reply within a few working days.</p>
+
+	<section class="prose">
+		<h2>How we can help</h2>
+		<p>
+			Spotted an error in a guide or a code sample that no longer works? Tell us the page address and
+			what you expected to happen, and we will fix it and credit you in the changelog. Have an idea
+			for a topic we have not covered yet? We keep a public list of requested guides and prioritise
+			the ones readers ask for most often. Questions about a specific guide are welcome too, and the
+			best ones often turn into new FAQ entries or follow-up articles.
+		</p>
+		<p>
+			We also accept a small number of guest articles from practising developers each quarter. Send a
+			short outline, a few sentences about yourself and links to two pieces of writing you are proud
+			of. For sponsorship enquiries, please read our FAQ first, then email
+			<a href={`mailto:${site.email}`}>{site.email}</a> with details about your product and audience.
+		</p>
+
+		<h2>Send a message</h2>
+		<!-- Demo form: intentionally not connected to any backend. -->
+		<form action="#" method="post" onsubmit="event.preventDefault()">
+			<label>Name <input name="name" autocomplete="name" required /></label>
+			<label>Email <input type="email" name="email" autocomplete="email" required /></label>
+			<label>Page address (optional) <input type="url" name="page" /></label>
+			<label>Message <textarea name="message" rows="6" required></textarea></label>
+			<button class="btn" type="submit">Send message</button>
+		</form>
+	</section>
+</BaseLayout>

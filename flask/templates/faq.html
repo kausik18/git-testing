@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Frequently Asked Questions</h1>
+<p class="lead">
+  Quick answers to the questions we hear most often at the counter. Still curious?
+  <a href="{{ url_for('contact') }}">Get in touch</a> and we will be glad to help.
+</p>
+{% for f in faqs %}
+<section class="faq-item">
+  <h2>{{ f.question }}</h2>
+  <p>{{ f.answer }}</p>
+</section>
+{% endfor %}
+{% endblock %}

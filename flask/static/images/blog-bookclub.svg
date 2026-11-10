@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Book club night">
+  <rect width="800" height="450" fill="#fdf6e3"/>
+  <rect x="40" y="22.5" width="720" height="405" fill="none" stroke="#5b1a1a" stroke-width="5"/>
+  <circle cx="680" cy="81" r="54" fill="#d4a017" opacity="0.5"/>
+  <rect x="80" y="360" width="640" height="13.5" fill="#d4a017" opacity="0.7"/>
+  <text x="50%" y="225" dominant-baseline="middle" text-anchor="middle" font-family="Georgia, serif" font-size="50" fill="#5b1a1a">Book club night</text>
+</svg>

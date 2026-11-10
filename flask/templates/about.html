@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>About Bookworm Bookstore</h1>
+{# INTENTIONAL SEO DEFECT (mixed content): hard-coded http:// image URL, see app.py about() #}
+<img src="{{ insecure_image_url }}" alt="{{ IMAGES.reading_room.alt }}" width="{{ IMAGES.reading_room.width }}" height="{{ IMAGES.reading_room.height }}">
+
+<section>
+  <h2>Our story</h2>
+  <p>
+    Bookworm Bookstore opened in 1998 in a former hardware store on Elm Street, with a few hundred second-hand books
+    and a borrowed cash register. Founder Ruth Whitaker had spent twenty years as a school librarian and wanted to
+    create the kind of shop she had always wished existed: welcoming to everyone, unhurried, and run by people who
+    genuinely love books.
+  </p>
+  <p>
+    Today the shop is run by Ruth’s son Dan and a small team of booksellers. We have grown to fill both floors of the
+    building, added a children’s room and a reading café, and now stock around twenty thousand new and used titles.
+    The original cash register still sits on the counter, although these days it is mostly decorative.
+  </p>
+</section>
+
+<section>
+  <h2>What we believe</h2>
+  <p>
+    We believe a good bookshop is a public living room. You are welcome to browse for as long as you like, read in the
+    armchairs upstairs, or simply come in for a chat about what you are reading. We choose every book on our shelves
+    by hand, give generous space to local and independent publishers, and pay fair prices for the second-hand books
+    our customers bring in.
+  </p>
+  <p>
+    We also give back to the community that has supported us for over twenty-five years. Each year we donate books to
+    Maplewood’s schools and library, host free literacy workshops for adults, and run a summer reading challenge that
+    encourages hundreds of local children to keep reading during the holidays.
+  </p>
+</section>
+
+<section>
+  <h2>Meet the booksellers</h2>
+  <ul>
+    <li><strong>Dan Whitaker</strong> — store manager, gardener and reluctant thriller addict</li>
+    <li><strong>Priya Natarajan</strong> — literary fiction and translated fiction</li>
+    <li><strong>Lucia Moreno</strong> — science fiction, fantasy and graphic novels</li>
+    <li><strong>Sam Okafor</strong> — children’s and young adult books</li>
+  </ul>
+  <p>Come and say hello, or <a href="{{ url_for('contact') }}">contact us</a> with any question.</p>
+</section>
+{% endblock %}

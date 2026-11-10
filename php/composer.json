@@ -1,0 +1,15 @@
+{
+    "name": "seo-test-sites/summit-hiking-gear",
+    "description": "Summit Hiking Gear: plain PHP 8 server-rendered shop for SEO crawler testing",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.0"
+    },
+    "scripts": {
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S localhost:3002 -t public public/index.php"
+        ]
+    }
+}

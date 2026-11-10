@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data';
+---
+
+<BaseLayout
+	title="Privacy Policy | DevNotes"
+	description="Read how DevNotes handles reader data: privacy-friendly analytics, no advertising trackers, contact form messages and your data rights."
+>
+	<h1>Privacy policy</h1>
+	<p class="meta">Last updated: 1 September 2026</p>
+
+	<section class="prose">
+		<p>
+			DevNotes is a reading-first website. We collect as little personal information as possible and
+			never sell or share it with advertisers. This page explains exactly what we collect and why.
+		</p>
+
+		<h2>Analytics</h2>
+		<p>
+			We use a self-hosted, cookie-free analytics tool that records page views, referrers and
+			approximate country. It does not store IP addresses or build profiles of individual readers,
+			and the data is used only to understand which guides are useful.
+		</p>
+
+		<h2>Contact messages</h2>
+		<p>
+			When you email us or use the contact form, we keep your name, email address and message so that
+			we can reply. Messages are deleted after twelve months unless they relate to an ongoing guest
+			article or correction.
+		</p>
+
+		<h2>Cookies and third parties</h2>
+		<p>
+			DevNotes sets no tracking cookies and loads no advertising scripts. Sponsored placements are
+			plain images and links hosted on our own domain, so sponsors cannot track you.
+		</p>
+
+		<h2>Your rights</h2>
+		<p>
+			You can ask us for a copy of any data we hold about you, or ask us to delete it, by emailing
+			<a href={`mailto:${site.email}`}>{site.email}</a>. We respond within thirty days.
+		</p>
+	</section>
+</BaseLayout>

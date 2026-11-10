@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Financial reports">
+  <rect width="800" height="450" fill="#0f3d5e"/>
+  <circle cx="656" cy="113" r="81" fill="#2bb3a3" opacity="0.55"/>
+  <rect x="64" y="279" width="400" height="27" rx="6" fill="#ffffff" opacity="0.35"/>
+  <rect x="64" y="329" width="272" height="23" rx="6" fill="#ffffff" opacity="0.25"/>
+  <text x="64" y="225" font-family="Arial, Helvetica, sans-serif" font-size="41" font-weight="700" fill="#ffffff">Financial reports</text>
+</svg>

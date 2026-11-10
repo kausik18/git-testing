@@ -1,0 +1,15 @@
+{
+  "name": "devnotes-astro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --port 3008",
+    "build": "astro build",
+    "preview": "astro preview --port 3008",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "7.4.1"
+  }
+}

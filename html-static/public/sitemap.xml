@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>http://localhost:3001/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/about/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/menu/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/menu/country-sourdough/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/menu/butter-croissant/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/menu/cinnamon-swirl-bun/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/blog/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/blog/why-we-ferment-sourdough-for-48-hours/</loc><lastmod>2026-09-14</lastmod></url>
+  <url><loc>http://localhost:3001/blog/how-to-keep-bread-fresh/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>http://localhost:3001/contact/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/faq/</loc><lastmod>2026-11-01</lastmod></url>
+  <url><loc>http://localhost:3001/privacy/</loc><lastmod>2026-11-01</lastmod></url>
+</urlset>

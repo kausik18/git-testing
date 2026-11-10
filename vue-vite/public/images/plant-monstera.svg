@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Monstera">
+  <rect width="800" height="800" fill="#2f7d44"/>
+  <circle cx="640" cy="200" r="280" fill="#ffd88a" opacity="0.35"/>
+  <rect x="64" y="496" width="360" height="64" rx="32" fill="#ffd88a" opacity="0.6"/>
+  <text x="64" y="400" font-family="system-ui, sans-serif" font-size="72" font-weight="700" fill="#ffffff">Monstera</text>
+</svg>

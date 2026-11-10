@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hard-coded to SITE_URL default (http://localhost:3009). Update when deploying elsewhere. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>http://localhost:3009/</loc></url>
+  <url><loc>http://localhost:3009/about</loc></url>
+  <url><loc>http://localhost:3009/services</loc></url>
+  <url><loc>http://localhost:3009/services/teeth-cleaning</loc></url>
+  <url><loc>http://localhost:3009/services/dental-implants</loc></url>
+  <url><loc>http://localhost:3009/services/teeth-whitening</loc></url>
+  <url><loc>http://localhost:3009/blog</loc></url>
+  <url><loc>http://localhost:3009/blog/how-often-should-you-floss</loc></url>
+  <url><loc>http://localhost:3009/blog/first-dental-visit-for-kids</loc></url>
+  <url><loc>http://localhost:3009/contact</loc></url>
+  <url><loc>http://localhost:3009/faq</loc></url>
+  <url><loc>http://localhost:3009/privacy</loc></url>
+  <url><loc>http://localhost:3009/careers</loc></url>
+</urlset>

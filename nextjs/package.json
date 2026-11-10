@@ -1,0 +1,22 @@
+{
+  "name": "ledgerly-nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ledgerly (accounting SaaS) - Next.js App Router SEO test site",
+  "scripts": {
+    "dev": "next dev -p 3004",
+    "build": "next build",
+    "start": "next start -p 3004"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.9.3"
+  }
+}

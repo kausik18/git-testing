@@ -1,0 +1,66 @@
+---
+import SEO from '../components/SEO.astro';
+import type { Props as SEOProps } from '../components/SEO.astro';
+import { nav, site } from '../data';
+import { pagePath } from '../url';
+import '../styles/global.css';
+
+export type Props = SEOProps;
+
+const path = pagePath(Astro.url);
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<SEO {...Astro.props} />
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container header-inner">
+				<a class="logo" href="/">
+					<img src="/favicon.svg" alt="DevNotes logo" width="32" height="32" />
+					<span>{site.name}</span>
+				</a>
+				<nav aria-label="Main">
+					<ul>
+						{
+							nav.map((item) => (
+								<li>
+									<a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+										{item.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main class="container">
+			<slot />
+		</main>
+
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<div>
+					<p class="footer-brand">{site.name}</p>
+					<p>{site.tagline}.</p>
+					<p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+				</div>
+				<nav aria-label="Footer">
+					<ul>
+						{nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+						<li><a href="/privacy">Privacy Policy</a></li>
+					</ul>
+				</nav>
+			</div>
+			<p class="container copyright">© 2026 {site.name}. Code samples MIT licensed.</p>
+		</footer>
+	</body>
+</html>

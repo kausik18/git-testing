@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Fig leaf detail">
+  <rect width="800" height="600" fill="#3f8f55"/>
+  <circle cx="640" cy="150" r="210" fill="#ffd88a" opacity="0.35"/>
+  <rect x="64" y="372" width="360" height="48" rx="24" fill="#ffd88a" opacity="0.6"/>
+  <text x="64" y="300" font-family="system-ui, sans-serif" font-size="54" font-weight="700" fill="#ffffff">Fig leaf detail</text>
+</svg>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% from "_macros.html" import breadcrumbs, img with context %}
+{% block breadcrumbs %}{{ breadcrumbs(crumbs) }}{% endblock %}
+{% block content %}
+<article>
+  <h1>{{ post.title }}</h1>
+  <p class="meta">By {{ post.author }} · <time datetime="{{ post.date_published }}">{{ post.date_published }}</time></p>
+  {{ img(post.image) }}
+  {% for section in post.sections %}
+  <section>
+    <h2>{{ section.heading }}</h2>
+    {% for para in section.paragraphs %}
+    <p>{{ para }}</p>
+    {% endfor %}
+  </section>
+  {% endfor %}
+  <p><a href="{{ url_for('blog') }}">Back to all blog articles</a></p>
+</article>
+{% endblock %}

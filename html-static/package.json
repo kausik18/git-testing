@@ -1,0 +1,15 @@
+{
+  "name": "html-static-brightside-bakery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Brightside Bakery: plain HTML/CSS/JS static site for SEO crawler testing",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "build": "node scripts/build.mjs",
+    "set-site-url": "node scripts/set-site-url.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

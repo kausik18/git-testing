@@ -1,0 +1,5 @@
+# Hard-coded to SITE_URL default (http://localhost:3009). Update when deploying elsewhere.
+User-agent: *
+Allow: /
+
+Sitemap: http://localhost:3009/sitemap.xml

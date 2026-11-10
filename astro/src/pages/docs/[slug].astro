@@ -1,0 +1,56 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { guides, formatDate, type Guide } from '../../data';
+import { breadcrumbSchema, techArticleSchema } from '../../schema';
+
+export const getStaticPaths = (() =>
+	guides.map((guide) => ({ params: { slug: guide.slug }, props: { guide } }))) satisfies GetStaticPaths;
+
+interface Props {
+	guide: Guide;
+}
+
+const { guide } = Astro.props;
+const crumbs = [
+	{ name: 'Home', path: '/' },
+	{ name: 'Docs', path: '/docs' },
+	{ name: guide.name, path: `/docs/${guide.slug}` }
+];
+---
+
+<BaseLayout
+	title={guide.title}
+	description={guide.description}
+	type="article"
+	image={guide.image}
+	jsonLd={[techArticleSchema(Astro.site, guide), breadcrumbSchema(Astro.site, crumbs)]}
+>
+	<Breadcrumbs items={crumbs} />
+	<article class="prose">
+		<h1>{guide.name}</h1>
+		<p class="meta">
+			<span class="badge">{guide.level}</span> {guide.readingTime} · Last reviewed{' '}
+			<time datetime={guide.updated}>{formatDate(guide.updated)}</time>
+		</p>
+		<p class="lead">{guide.summary}</p>
+		<img class="feature-img" src={guide.image} alt={guide.imageAlt} width="960" height="540" />
+
+		{
+			guide.sections.map((section) => (
+				<section>
+					<h2>{section.heading}</h2>
+					{section.paragraphs.map((p) => <p>{p}</p>)}
+					{section.code && (
+						<pre>
+							<code>{section.code}</code>
+						</pre>
+					)}
+				</section>
+			))
+		}
+
+		<p>Continue with the <a href="/docs">other DevNotes guides</a> or read the latest posts on <a href="/blog">the blog</a>.</p>
+	</article>
+</BaseLayout>

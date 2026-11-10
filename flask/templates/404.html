@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Page Not Found</h1>
+<p class="lead">Sorry, we couldn’t find the page you were looking for.</p>
+<p>It may have moved, or the address may have been typed incorrectly. These pages might help:</p>
+<ul>
+  <li><a href="{{ url_for('index') }}">Bookworm Bookstore home page</a></li>
+  <li><a href="{{ url_for('books') }}">Browse our books</a></li>
+  <li><a href="{{ url_for('contact') }}">Contact the shop</a></li>
+</ul>
+{% endblock %}

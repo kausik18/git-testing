@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { team } from '../data';
+---
+
+<BaseLayout
+	title="About the DevNotes Editorial Team | DevNotes"
+	description="Meet the developers behind DevNotes and learn how we research, write, review and update every guide and article we publish."
+>
+	<h1>About DevNotes</h1>
+	<p class="lead">An independent publication by developers, for developers.</p>
+	<img
+		class="feature-img"
+		src="/images/about.svg"
+		alt="Three DevNotes editors reviewing a pull request together on a large monitor"
+		width="960"
+		height="400"
+	/>
+
+	<section class="prose">
+		<h2>Our story</h2>
+		<p>
+			DevNotes began in 2021 as a private repository of notes kept by Ana Kowalski while she was
+			onboarding junior developers at a small agency. The notes explained concepts the way she wished
+			someone had explained them to her: starting with the mental model, then the syntax, then the
+			edge cases. When colleagues started sharing the links outside the company, she published them
+			as a website.
+		</p>
+		<p>
+			Since then DevNotes has grown to a small editorial team and tens of thousands of monthly
+			readers. We remain fully independent. Sponsorships are clearly labelled, never influence what
+			we recommend, and never appear inside a guide.
+		</p>
+
+		<h2>How we write</h2>
+		<h3>Research and drafting</h3>
+		<p>
+			Every guide starts with a question real developers ask. We read the specification and official
+			documentation, build a small project that exercises the feature, and only then begin writing.
+		</p>
+		<h3>Technical review</h3>
+		<p>
+			A second editor runs every code sample and checks every claim before publication. Guides are
+			re-reviewed twice a year, and corrections are logged publicly.
+		</p>
+
+		<h2>The team</h2>
+		<ul>
+			{team.map((person) => <li><strong>{person.name}</strong>, {person.role}</li>)}
+		</ul>
+		<p>Want to contribute or report a mistake? <a href="/contact">Get in touch with the editors</a>.</p>
+	</section>
+</BaseLayout>

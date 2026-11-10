@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { guides, formatDate } from '../../data';
+---
+
+<BaseLayout
+	title="Developer Documentation Guides | DevNotes"
+	description="Browse DevNotes documentation guides covering Git version control, CSS Grid layout and TypeScript generics, from beginner to advanced level."
+>
+	{/* Intentional SEO defect: this <h1> text is identical to the one on /blog. */}
+	<h1>Learn Web Development with DevNotes</h1>
+	<p class="lead">Long-form reference guides that explain the why as well as the how.</p>
+	<p class="prose">
+		Our documentation guides are designed to be read from top to bottom the first time and used as a
+		reference afterwards. Each one starts with the underlying mental model before moving on to syntax,
+		patterns and pitfalls, and every code sample has been run by a technical reviewer. Guides are
+		tagged by level so you can choose a starting point that matches your experience. Beginner guides
+		assume only a little HTML knowledge, intermediate guides expect you to be comfortable with CSS and
+		JavaScript, and advanced guides dig into the type system and tooling details that come up in
+		larger codebases. We revisit each guide at least twice a year and note the review date at the top
+		of the page.
+	</p>
+
+	<div class="grid">
+		{
+			guides.map((g) => (
+				<article class="card">
+					<img src={g.image} alt={g.imageAlt} width="480" height="270" />
+					<h2><a href={`/docs/${g.slug}`}>{g.name}</a></h2>
+					<p>{g.summary}</p>
+					<p class="meta">
+						<span class="badge">{g.level}</span> {g.readingTime} · Updated{' '}
+						<time datetime={g.updated}>{formatDate(g.updated)}</time>
+					</p>
+				</article>
+			))
+		}
+	</div>
+</BaseLayout>

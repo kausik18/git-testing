@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "_macros.html" import img with context %}
+{% block content %}
+<h1>Browse Our Books</h1>
+<p class="lead">
+  A small selection of the titles our booksellers are most excited about right now, from atmospheric literary fiction
+  to practical guides and page-turning science fiction.
+</p>
+<p>
+  Our physical shelves hold around twenty thousand new and second-hand books, and we can order almost anything else in
+  print within three to five working days. Every book below is in stock today, and several are available as signed
+  copies while supplies last. Prices include sales tax. Members of our loyalty scheme earn one stamp per book, and ten
+  stamps earn a free paperback of your choice. If you are buying for someone else, our booksellers are always happy to
+  help you find the perfect gift.
+</p>
+
+<div class="cards">
+  {% for book in books %}
+  <article class="card book-card">
+    {{ img(book.image) }}
+    <h2><a href="{{ url_for('book_detail', slug=book.slug) }}">{{ book.title }}</a></h2>
+    <p class="meta">by {{ book.author }} · {{ book.genre }}</p>
+    <p>{{ book.summary }}</p>
+    <p class="price">${{ book.price }}</p>
+  </article>
+  {% endfor %}
+</div>
+
+<section>
+  <h2>Can’t find what you’re looking for?</h2>
+  <p>
+    Call us, send a message through our <a href="{{ url_for('contact') }}">contact page</a> or ask at the counter, and
+    we will track it down for you. We also search for out-of-print titles through our network of second-hand dealers.
+  </p>
+</section>
+{% endblock %}

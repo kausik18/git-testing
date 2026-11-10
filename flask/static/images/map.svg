@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-label="42 Elm Street, Maplewood">
+  <rect width="800" height="400" fill="#fdf6e3"/>
+  <rect x="40" y="20" width="720" height="360" fill="none" stroke="#5b1a1a" stroke-width="5"/>
+  <circle cx="680" cy="72" r="48" fill="#d4a017" opacity="0.5"/>
+  <rect x="80" y="320" width="640" height="12" fill="#d4a017" opacity="0.7"/>
+  <text x="50%" y="200" dominant-baseline="middle" text-anchor="middle" font-family="Georgia, serif" font-size="50" fill="#5b1a1a">42 Elm Street, Maplewood</text>
+</svg>

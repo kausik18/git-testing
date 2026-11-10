@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "_macros.html" import img with context %}
+{% block content %}
+<h1>The Bookworm Blog</h1>
+<p class="lead">Reading lists, book club advice and news from the booksellers at Bookworm Bookstore.</p>
+<p>
+  Our booksellers read hundreds of books a year between them, and this is where we share the ones we cannot stop
+  talking about. You will find seasonal reading lists, practical advice for book clubs and reluctant readers, behind
+  the scenes stories from the shop, and announcements of upcoming author events. New articles are published a couple
+  of times a month and also go out in our newsletter, which you can sign up for at the counter. We love hearing what
+  you think, so tell us about your own favourites next time you visit.
+</p>
+
+<div class="cards">
+  {% for post in posts %}
+  <article class="card">
+    {{ img(post.image) }}
+    <h2><a href="{{ url_for('blog_post', slug=post.slug) }}">{{ post.title }}</a></h2>
+    <p class="meta">By {{ post.author }} · <time datetime="{{ post.date_published }}">{{ post.date_published }}</time></p>
+    <p>{{ post.excerpt }}</p>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

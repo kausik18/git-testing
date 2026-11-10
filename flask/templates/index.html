@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% from "_macros.html" import img with context %}
+{% block content %}
+<section class="hero">
+  <div>
+    <h1>Your Independent Bookshop on Elm Street</h1>
+    <p class="lead">
+      Bookworm Bookstore has been matching Maplewood readers with their next favourite book since 1998. Browse
+      thousands of new and second-hand titles, ask our booksellers for a recommendation, and stay for a coffee in the
+      reading café.
+    </p>
+    <p><a href="{{ url_for('books') }}" class="button">Browse staff picks</a></p>
+  </div>
+  {{ img(IMAGES.hero) }}
+</section>
+
+<section>
+  <h2>More than a bookshop</h2>
+  <p>
+    We are a proudly independent, family-run shop with a team of seven booksellers who read widely and love to talk
+    about books. Our shelves are hand-picked rather than chosen by algorithm, so you will find small-press gems and
+    local authors alongside the bestsellers. If we do not have what you are looking for, we can order almost any book
+    in print within a few days at no extra cost.
+  </p>
+  <p>
+    Every month we host author readings, signings and book club evenings, and every Saturday morning our children’s
+    room fills up for story time. Upstairs you will find a quiet reading room with armchairs and a wood stove, and our
+    café serves locally roasted coffee and pastries from the bakery next door.
+  </p>
+  <ul class="feature-list">
+    <li>New, used and signed books across every genre</li>
+    <li>Free special orders and flat-rate US shipping</li>
+    <li>Monthly author events and book clubs</li>
+    <li>Gift cards that never expire</li>
+  </ul>
+  <p>Looking for something specific? <a href="/legacy-books">See the full book catalogue</a>.</p>
+</section>
+
+<section>
+  <h2>Staff picks</h2>
+  <div class="cards">
+    {% for book in books %}
+    <article class="card">
+      <h3><a href="{{ url_for('book_detail', slug=book.slug) }}">{{ book.title }}</a></h3>
+      <p class="meta">by {{ book.author }}</p>
+      <p>{{ book.summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <h2>From the blog</h2>
+  <ul class="post-list">
+    {% for post in posts %}
+    <li>
+      <h3><a href="{{ url_for('blog_post', slug=post.slug) }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

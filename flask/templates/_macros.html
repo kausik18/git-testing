@@ -1,0 +1,13 @@
+{% macro breadcrumbs(crumbs) %}
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+  <ol>
+    {% for name, path in crumbs %}
+    <li>{% if loop.last %}<span aria-current="page">{{ name }}</span>{% else %}<a href="{{ path }}">{{ name }}</a>{% endif %}</li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endmacro %}
+
+{% macro img(image, cls='') %}
+<img src="{{ static_url(image.src) }}" alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}"{% if cls %} class="{{ cls }}"{% endif %}>
+{% endmacro %}

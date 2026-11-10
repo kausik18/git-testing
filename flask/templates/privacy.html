@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{# INTENTIONAL SEO DEFECT: this page omits the lang attribute on <html>. #}
+{% block html_lang %}{% endblock %}
+{% block content %}
+<h1>Privacy Policy</h1>
+<p class="meta">Last updated: 1 October 2026</p>
+<p>
+  Bookworm Bookstore takes your privacy seriously. This policy explains what personal information we collect when you
+  visit our website, shop with us or sign up for our newsletter, how we use that information and the choices you have.
+</p>
+
+<section>
+  <h2>Information we collect</h2>
+  <p>
+    When you send us a message or place a special order we collect your name, email address and any details you
+    include in your message. If you join our loyalty scheme we store your name, email address and a record of your
+    stamps. Our website collects basic, anonymous usage statistics such as the pages visited and the type of browser
+    used. We do not use advertising cookies or tracking pixels.
+  </p>
+</section>
+
+<section>
+  <h2>How we use your information</h2>
+  <p>
+    We use your details only to answer your enquiries, fulfil orders, run the loyalty scheme and, if you have opted in,
+    send our monthly newsletter. We never sell or rent customer information. Payment card details are processed by our
+    card terminal provider and are never stored by us.
+  </p>
+</section>
+
+<section>
+  <h2>Keeping your data safe</h2>
+  <p>
+    Customer records are stored on secure, access-controlled systems and are kept only as long as needed. Enquiries are
+    deleted after twelve months, and newsletter subscribers can unsubscribe at any time using the link in every email.
+  </p>
+</section>
+
+<section>
+  <h2>Your rights</h2>
+  <p>
+    You can ask us to show you, correct or delete the information we hold about you at any time. Email
+    <a href="mailto:{{ STORE.email }}">{{ STORE.email }}</a> or write to us at {{ STORE.street }}, {{ STORE.city }},
+    {{ STORE.region }} {{ STORE.postal_code }}, and we will respond within thirty days.
+  </p>
+</section>
+{% endblock %}

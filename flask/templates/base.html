@@ -1,0 +1,69 @@
+<!doctype html>
+<html{% block html_lang %} lang="en"{% endblock %}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block seo %}
+  <title>{{ seo.title }}</title>
+  <meta name="description" content="{{ seo.description }}">
+  {% if seo.robots %}<meta name="robots" content="{{ seo.robots }}">{% endif %}
+  <link rel="canonical" href="{{ seo.canonical }}">
+  <meta property="og:title" content="{{ seo.title }}">
+  <meta property="og:description" content="{{ seo.description }}">
+  <meta property="og:url" content="{{ seo.canonical }}">
+  <meta property="og:type" content="{{ seo.og_type }}">
+  <meta property="og:image" content="{{ seo.image }}">
+  <meta property="og:site_name" content="{{ SITE_NAME }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seo.title }}">
+  <meta name="twitter:description" content="{{ seo.description }}">
+  <meta name="twitter:image" content="{{ seo.image }}">
+  {% for item in seo.json_ld %}
+  <script type="application/ld+json">{{ item | tojson }}</script>
+  {% endfor %}
+  {% endblock %}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="{{ static_url('css/style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="{{ url_for('index') }}" class="brand">
+        <img src="/favicon.svg" alt="Bookworm open book logo" width="36" height="36">
+        <span>Bookworm Bookstore</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          {% for endpoint, label in NAV %}
+          <li><a href="{{ url_for(endpoint) }}"{% if request.endpoint == endpoint %} aria-current="page"{% endif %}>{{ label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block breadcrumbs %}{% endblock %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">{{ STORE.name }}</p>
+        <p>{{ STORE.street }}<br>{{ STORE.city }}, {{ STORE.region }} {{ STORE.postal_code }}</p>
+        <p><a href="tel:{{ STORE.phone }}">{{ STORE.phone_display }}</a></p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <ul>
+          {% for endpoint, label in NAV %}
+          <li><a href="{{ url_for(endpoint) }}">{{ label }}</a></li>
+          {% endfor %}
+          <li><a href="{{ url_for('privacy') }}">Privacy Policy</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="container copyright">© 2026 {{ STORE.name }}. All rights reserved.</p>
+  </footer>
+</body>
+</html>

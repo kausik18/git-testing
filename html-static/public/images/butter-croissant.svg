@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<rect width="100%" height="100%" fill="#f0b860"/>
+<circle cx="680" cy="120" r="100.5" fill="#3d2314" opacity="0.15"/>
+<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Georgia, serif" font-size="67" fill="#3d2314">Butter croissant</text>
+</svg>

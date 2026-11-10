@@ -1,0 +1,30 @@
+{
+  "name": "pixelforge-react-vite",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "PixelForge Design Agency - React + Vite CSR SPA used as an SEO crawler test site",
+  "scripts": {
+    "gen:seo-files": "node scripts/gen-sitemap.mjs",
+    "predev": "npm run gen:seo-files",
+    "dev": "vite",
+    "prebuild": "npm run gen:seo-files",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^7.18.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

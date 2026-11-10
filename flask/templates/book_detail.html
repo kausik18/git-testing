@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "_macros.html" import breadcrumbs, img with context %}
+{% block breadcrumbs %}{{ breadcrumbs(crumbs) }}{% endblock %}
+{% block content %}
+<article class="book">
+  <div class="book-layout">
+    {{ img(book.image, 'cover') }}
+    <div>
+      <h1>{{ book.title }}</h1>
+      <p class="lead">by {{ book.author }}</p>
+      <p>{{ book.summary }}</p>
+      <dl class="facts">
+        <dt>Price</dt><dd>${{ book.price }}</dd>
+        <dt>Genre</dt><dd>{{ book.genre }}</dd>
+        <dt>Pages</dt><dd>{{ book.pages }}</dd>
+        <dt>ISBN</dt><dd>{{ book.isbn }}</dd>
+        <dt>Availability</dt><dd>In stock</dd>
+      </dl>
+    </div>
+  </div>
+
+  <section>
+    <h2>About the book</h2>
+    {% for para in book.body %}
+    <p>{{ para }}</p>
+    {% endfor %}
+  </section>
+
+  <section>
+    <h2>Bookseller’s note</h2>
+    <blockquote>{{ book.staff_note }}</blockquote>
+  </section>
+
+  <p><a href="{{ url_for('books') }}">Back to all books</a></p>
+</article>
+{% endblock %}

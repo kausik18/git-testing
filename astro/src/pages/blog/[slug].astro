@@ -1,0 +1,65 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { posts, formatDate, type Post } from '../../data';
+import { blogPostingSchema, breadcrumbSchema } from '../../schema';
+
+export const getStaticPaths = (() =>
+	posts.map((post) => ({ params: { slug: post.slug }, props: { post } }))) satisfies GetStaticPaths;
+
+interface Props {
+	post: Post;
+}
+
+const { post } = Astro.props;
+const crumbs = [
+	{ name: 'Home', path: '/' },
+	{ name: 'Blog', path: '/blog' },
+	{ name: post.title, path: `/blog/${post.slug}` }
+];
+
+// Intentional SEO defect: posts flagged with `omitJsonLd` ship without any structured data.
+const jsonLd = post.omitJsonLd
+	? []
+	: [blogPostingSchema(Astro.site, post), breadcrumbSchema(Astro.site, crumbs)];
+---
+
+<BaseLayout
+	title={post.metaTitle}
+	description={post.description}
+	type="article"
+	image={post.image}
+	jsonLd={jsonLd}
+>
+	<Breadcrumbs items={crumbs} />
+	<article class="prose">
+		<h1>{post.title}</h1>
+		<p class="meta">
+			By {post.author} · <time datetime={post.datePublished}>{formatDate(post.datePublished)}</time>
+		</p>
+		<img class="feature-img" src={post.image} alt={post.imageAlt} width="960" height="540" />
+
+		{
+			post.sections.map((section) => (
+				<section>
+					<h2>{section.heading}</h2>
+					{section.paragraphs.map((p) => <p>{p}</p>)}
+				</section>
+			))
+		}
+
+		{
+			post.links && (
+				<section>
+					<h2>Further reading</h2>
+					<ul>
+						{post.links.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+					</ul>
+				</section>
+			)
+		}
+
+		<p>Read more articles on <a href="/blog">the DevNotes blog</a>.</p>
+	</article>
+</BaseLayout>

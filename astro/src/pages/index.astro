@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { guides, posts, formatDate } from '../data';
+import { organizationSchema, websiteSchema } from '../schema';
+---
+
+<BaseLayout
+	title="Web Development Guides and Articles | DevNotes"
+	description="DevNotes publishes free, practical web development guides and articles on Git, CSS, TypeScript, accessibility and modern front-end tooling."
+	jsonLd={[organizationSchema(Astro.site), websiteSchema(Astro.site)]}
+>
+	<h1>Clear, practical notes for web developers</h1>
+	<p class="lead">
+		In-depth guides and honest articles written by working developers, reviewed for accuracy and
+		kept up to date.
+	</p>
+	<img
+		class="feature-img"
+		src="/images/hero.svg"
+		alt="Terminal window and code editor side by side on a dark background"
+		width="960"
+		height="400"
+	/>
+
+	<section class="prose">
+		<h2>What you will find here</h2>
+		<p>
+			DevNotes started as a shared notebook between three developers who were tired of outdated
+			tutorials and copy-pasted answers. Today it is an independent publication with two kinds of
+			content. Our documentation guides are long-lived references that explain a technology from the
+			ground up, with runnable examples and clear explanations of why things work the way they do.
+			Our blog articles are shorter and more opinionated, covering lessons from real projects,
+			architecture decisions and the trade-offs behind them.
+		</p>
+		<p>
+			Everything is free to read, every code sample is MIT licensed, and every guide is reviewed at
+			least twice a year so you are never learning yesterday's best practice.
+		</p>
+	</section>
+
+	<section>
+		<h2>Popular guides</h2>
+		<div class="grid">
+			{
+				guides.map((g) => (
+					<article class="card">
+						<h3><a href={`/docs/${g.slug}`}>{g.name}</a></h3>
+						<p>{g.summary}</p>
+						<p class="meta"><span class="badge">{g.level}</span> {g.readingTime}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section>
+		<h2>Latest articles</h2>
+		<ul>
+			{
+				posts.map((p) => (
+					<li>
+						<a href={`/blog/${p.slug}`}>{p.title}</a>
+						<span class="meta"> · {formatDate(p.datePublished)}</span>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</BaseLayout>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="PixelForge studio">
+  <rect width="1200" height="630" fill="#5b2be0"/>
+  <circle cx="960" cy="158" r="221" fill="#ff6b4a" opacity="0.35"/>
+  <rect x="96" y="391" width="540" height="50" rx="25" fill="#ff6b4a" opacity="0.6"/>
+  <text x="96" y="315" font-family="system-ui, sans-serif" font-size="57" font-weight="700" fill="#ffffff">PixelForge studio</text>
+</svg>
