@@ -5,7 +5,7 @@ Composer dependencies): a front controller, a tiny router, shared partials and o
 
 - **Rendering mode:** server-rendered on every request (PHP includes)
 - **Requires:** PHP 8.0 or newer (uses `str_starts_with`, `str_ends_with`, arrow functions).
-  Tested with PHP 8.3.
+  Tested with PHP 8.5.12 (`php -S`, no warnings or deprecations) and PHP 8.3.
 - **Port:** 3002
 - **SITE_URL:** read from the `SITE_URL` environment variable, default `http://localhost:3002`.
   It is used for canonical URLs, Open Graph/Twitter URLs, JSON-LD, `robots.txt` and `sitemap.xml`.
