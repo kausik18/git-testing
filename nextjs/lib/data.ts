@@ -236,8 +236,7 @@ export const posts: BlogPost[] = [
         ],
       },
     ],
-    // INTENTIONAL SEO DEFECT: heading skip (h1 -> h4) on this post.
-    sectionHeadingTag: 'h4',
+    sectionHeadingTag: 'h2',
   },
 ];
 
