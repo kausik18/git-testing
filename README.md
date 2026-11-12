@@ -28,6 +28,36 @@ Requirements: Node 22.18+ (Angular needs 22.22.3+), Python 3.9+, and PHP 8+ for 
 Canonical, Open Graph and sitemap URLs default to `http://localhost:<port>`. Each README says how
 to change the base URL (usually a `SITE_URL` setting) when deploying somewhere else.
 
+## Live deployments (Vercel)
+
+| Site | URL |
+|---|---|
+| html-static | https://seo-test-html-static.vercel.app |
+| php | https://seo-test-php.vercel.app |
+| react-vite | https://seo-test-react-vite.vercel.app |
+| nextjs | https://seo-test-nextjs.vercel.app |
+| vue-vite | https://seo-test-vue-vite.vercel.app |
+| nuxt | https://seo-test-nuxt.vercel.app |
+| sveltekit | https://seo-test-sveltekit.vercel.app |
+| astro | https://seo-test-astro.vercel.app |
+| angular | https://seo-test-angular.vercel.app |
+| flask | https://seo-test-flask.vercel.app |
+
+Each site is its own Vercel project (`seo-test-<folder>`), deployed from its folder with
+`npx vercel deploy --prod`. The base URL is set per project as a production environment
+variable (`SITE_URL`; `VITE_SITE_URL` for react-vite and vue-vite; `NUXT_PUBLIC_SITE_URL` for nuxt),
+so canonical, Open Graph and sitemap URLs use the live domain. Vercel-specific setup:
+
+- **php** runs on the community `vercel-php` runtime through [php/api/index.php](php/api/index.php);
+  `php -S` still works locally.
+- **sveltekit** builds with `adapter-vercel` when `VERCEL` is set, `adapter-node` otherwise.
+- **angular** bakes `SITE_URL` into its environment file, `robots.txt` and `sitemap.xml` in a
+  `prebuild` step ([angular/scripts/set-site-url.mjs](angular/scripts/set-site-url.mjs)).
+- **html-static** URLs without a trailing slash get a 308 redirect on Vercel (301 locally), so its
+  broken link shows as 308 → 404.
+- **flask** runs on Vercel's Python runtime. Its `http://` image is redirected to `https://` (308),
+  but the page still references the insecure URL.
+
 ## Intentional SEO issues (expected findings)
 
 Every site deliberately contains three problems. Everything else should audit clean, so any

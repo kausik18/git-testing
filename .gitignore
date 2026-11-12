@@ -16,3 +16,4 @@ venv/
 .env.local
 *.log
 .DS_Store
+.vercel/

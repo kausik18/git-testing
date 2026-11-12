@@ -1,0 +1,3 @@
+# public/ is served as static files on Vercel; keep the php -S/Apache entry files out of it.
+public/index.php
+public/.htaccess

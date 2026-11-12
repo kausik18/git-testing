@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "prebuild": "node scripts/set-site-url.mjs",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "serve:dist": "node serve-dist.mjs"
